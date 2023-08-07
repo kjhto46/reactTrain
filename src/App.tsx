@@ -1,5 +1,10 @@
 import styled, { keyframes } from "styled-components";
 
+const Wrapper = styled.div`
+color:${(props) => props.theme.textColor};
+background:${(props) => props.theme.backgroundColor};
+`
+
 const Father = styled.div`
   display: flex;
 `;
@@ -40,7 +45,7 @@ const Box = styled.div`
 
 function App() {
   return (
-    <div>
+    <Wrapper>
       <Father>
         <Btn>로그인</Btn>
         <Btn as="a">로그인</Btn>
@@ -49,7 +54,7 @@ function App() {
       <Box>
         <span>🥰</span>
         </Box>
-    </div>
+    </Wrapper>
   );
 }
 
