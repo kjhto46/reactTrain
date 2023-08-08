@@ -1,21 +1,34 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 interface ContainerProps {
-  bgColor: string;
+  bgcolor: string;
+  bordercolor: string;
 }
 
 const Container = styled.div<ContainerProps>`
+  display:flex;
+  justify-content: center;
+  align-items:center;
   width: 200px;
   height: 200px;
-  background: ${(props) => props.bgColor};
+  background: ${(props) => props.bgcolor};
+  border: 1px solid ${(props) => props.bordercolor};
+  border-radius:50%;
 `;
 
 interface CircleProps {
-  bgColor: string;
+  bgcolor: string;
+  bordercolor?: string;
+  text?: string;
 }
 
-function Circle({ bgColor }: CircleProps) {
-  return <Container bgColor={bgColor} />;
+function Circle({ bgcolor, bordercolor, text = "기본값" }: CircleProps) {
+  return (
+    <Container bgcolor={bgcolor} bordercolor={bordercolor ?? bgcolor}>
+      {text}
+    </Container>
+  );
 }
 
 export default Circle;
